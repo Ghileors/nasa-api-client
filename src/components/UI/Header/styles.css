@@ -1,0 +1,9 @@
+a {
+  color: rgb(12, 73, 12);
+  padding: 10px;
+  text-decoration: none;
+}
+
+.active {
+  color: rgb(124, 21, 21);
+}
