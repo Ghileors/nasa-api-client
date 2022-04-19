@@ -1,16 +1,14 @@
-import React, { ReactChild } from 'react';
+import React, { FC } from 'react';
 import { useLocation, Navigate } from 'react-router-dom';
 import { LOGIN } from 'constants/path';
+import { IChildren } from 'models/IChildren';
+import useAuth from 'hook/useAuth';
 
-interface AuxProps {
-  children: ReactChild | ReactChild[];
-}
-
-const RequireAuth = ({ children }: AuxProps) => {
+const RequireAuth: FC<IChildren> = ({ children }) => {
   const location = useLocation();
-  const auth = false;
+  const context = useAuth();
 
-  if (!auth) {
+  if (!context?.user) {
     return <Navigate to={LOGIN} state={{ from: location }} />;
   }
 
