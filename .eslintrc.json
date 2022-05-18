@@ -24,7 +24,8 @@
   },
   "plugins": ["react", "@typescript-eslint", "prettier"],
   "rules": {
-    "meta.hasSuggestions": false,
+    "no-unused-vars": "off",
+    "meta.hasSuggestions": true,
     "require-jsdoc": "off",
     "@typescript-eslint/ban-ts-comment": "off",
     "@typescript-eslint/ban-types": "off",
