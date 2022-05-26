@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios';
-import { api } from '../http';
-import { IUser } from '../models/IUser';
+import { api } from '..';
+import { IUser } from '../../models/IUser';
 
 class UserService {
   async fetchUsers(): Promise<AxiosResponse<IUser[]>> {

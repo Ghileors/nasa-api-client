@@ -1,6 +1,6 @@
-import { api } from '../http';
+import { api } from '..';
 import { AxiosResponse } from 'axios';
-import { AuthResponse } from '../models/response/AuthResponse';
+import { AuthResponse } from '../../models/response/AuthResponse';
 
 export interface Credentials {
   email: string;

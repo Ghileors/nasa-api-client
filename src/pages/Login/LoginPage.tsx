@@ -8,8 +8,9 @@ interface LocationState {
 }
 interface FormElements extends HTMLFormControlsCollection {
   userName: HTMLInputElement;
+  userPassword: HTMLInputElement;
 }
-interface YourFormElement extends HTMLFormElement {
+interface LoginFormElement extends HTMLFormElement {
   readonly elements: FormElements;
 }
 
@@ -20,18 +21,20 @@ const LoginPage: FC = () => {
 
   const fromPage = (location.state as LocationState)?.from?.pathname || '/';
 
-  const handleSubmit = (event: FormEvent<YourFormElement>) => {
+  const handleSubmit = (event: FormEvent<LoginFormElement>) => {
     event.preventDefault();
-    const user = event.currentTarget.elements.userName?.value;
-    context?.signIn(user, () => navigate(fromPage, { replace: true }));
+    const userName = event.currentTarget.elements.userName?.value;
+    const userPassword = event.currentTarget.elements.userPassword?.value;
+    context?.signIn(userName, () => navigate(fromPage, { replace: true }));
   };
 
   return (
     <div>
       <h1>Login Page</h1>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="userName">
-          Name: <input id="userName" type="text" />
+        <label>
+          Name: <input name="userName" type="text" />
+          Password: <input name="userPassword" type="password" />
           <button type="submit">Login</button>
         </label>
       </form>
